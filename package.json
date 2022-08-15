@@ -1,0 +1,25 @@
+{
+  "name": "find-recipe-server",
+  "version": "1.0.0",
+  "description": "Backend server for Find Recipe Web Application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "SET NODE_ENV=development & nodemon server.js",
+    "build": "SET NODE_ENV=production & nodemon server.js"
+  },
+  "author": "Mark Christian Fajardo",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.5.2",
+    "morgan": "^1.10.0",
+    "validator": "^13.7.0"
+  }
+}
