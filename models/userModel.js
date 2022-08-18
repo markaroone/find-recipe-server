@@ -16,6 +16,7 @@ const userSchema = new mongoose.Schema(
       lowercase: true,
       validate: [validator.isEmail, 'Please provide a valid email.'],
     },
+    photo: String,
     role: {
       type: String,
       enum: ['user', 'admin'],
@@ -45,10 +46,10 @@ const userSchema = new mongoose.Schema(
       default: true,
       select: false,
     },
+  },
+  {
+    timestamps: true,
   }
-  //   {
-  //     timestamps: true,
-  //   }
 );
 
 // For user password update
