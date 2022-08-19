@@ -16,7 +16,11 @@ const userSchema = new mongoose.Schema(
       lowercase: true,
       validate: [validator.isEmail, 'Please provide a valid email.'],
     },
-    photo: String,
+    photo: {
+      type: String,
+      default:
+        'https://res.cloudinary.com/dqwdu3tfn/image/upload/v1658724546/layag-users/default_iframk.png',
+    },
     role: {
       type: String,
       enum: ['user', 'admin'],
