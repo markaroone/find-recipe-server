@@ -32,16 +32,16 @@ const userSchema = new mongoose.Schema(
       minLength: [8, 'Password length must be greater than 8 characters'],
       select: false,
     },
-    passwordConfirm: {
-      type: String,
-      require: [true, 'Please confirm your password'],
-      validate: {
-        validator: function (el) {
-          return el === this.password;
-        },
-        message: `Password doesn't match!`,
-      },
-    },
+    // passwordConfirm: {
+    //   type: String,
+    //   require: [true, 'Please confirm your password'],
+    //   validate: {
+    //     validator: function (el) {
+    //       return el === this.password;
+    //     },
+    //     message: `Password doesn't match!`,
+    //   },
+    // },
     passwordChangedAt: Date,
     passwordResetToken: String,
     passwordResetExpires: Date,
@@ -62,7 +62,7 @@ userSchema.pre('save', async function (next) {
 
   this.password = await bcrypt.hash(this.password, 12);
 
-  this.passwordConfirm = undefined;
+  // this.passwordConfirm = undefined;
 
   next();
 });
