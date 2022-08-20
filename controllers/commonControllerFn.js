@@ -17,8 +17,10 @@ exports.createOne = (Model, modelType = 'document') => {
 
 exports.getOne = (Model, populateOptions, modelType = 'document') =>
   tryCatchAsync(async (request, response, next) => {
-    let query = Model.findById(request.params.id);
-
+    let query = Model.findById(request.params.id).select(
+      '-createdAt -updatedAt -__v'
+    );
+    ``;
     if (populateOptions) query = query.populate(populateOptions);
 
     const document = await query;

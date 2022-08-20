@@ -5,7 +5,7 @@ const userController = require('../controllers/userController');
 const router = express.Router();
 
 router.post('/signup', authController.signup);
-router.post('/login', authController.login);
+router.post('/signin', authController.login);
 router.get('/logout', authController.logout);
 
 router.use(authController.protect);
