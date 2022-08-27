@@ -20,6 +20,7 @@ const createSendToken = (user, statusCode, request, response) => {
     expires: new Date(Date.now() + expirationTime),
     httpOnly: true,
     secure: request.secure || request.headers['x-forwarded-proto'] === 'https',
+    sameSite: 'strict',
   });
 
   user.password = undefined;
