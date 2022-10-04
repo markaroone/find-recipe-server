@@ -61,9 +61,10 @@ exports.login = tryCatchAsync(async (request, response, next) => {
 
 exports.logout = tryCatchAsync(async (request, response, next) => {
   response.cookie('jwt', 'loggedout', {
-    expires: new Date(Date.now() + 10 * 1000),
+    expires: new Date(Date.now() + 1 * 1000),
     httpOnly: true,
     secure: request.secure || request.headers['x-forwarded-proto'] === 'https',
+    sameSite: 'strict',
   });
 
   response.status(200).json({
